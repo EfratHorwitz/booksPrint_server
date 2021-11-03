@@ -5,7 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
 const mongoose = require('mongoose');
-
+var sizeOptionsModel = require('./models/sizeOptionsModel');
+var paperTypesModel = require('./models/paperTypesModel');
+var formatTypesOptionsModel=require('./models/formatTypesOptionsModel');
+var colorOptionsModel=require('./models/colorOptionsModel');
+var bindingTypesOptionsModel=require('./models/bindingTypesOptionsModel');
 
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
@@ -16,23 +20,72 @@ var app = express();
 //connecting to mongo atlas
 const url = `mongodb+srv://shulaefrat:shef1234@cluster0.fwpkh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
-const connectionParams={
+const connectionParams = {
   useNewUrlParser: true,
   // useUnifiedTopology: true 
 }
-mongoose.connect(url,connectionParams)
-  .then( () => {
-      console.log('Connected to database ')
+mongoose.connect(url, connectionParams)
+  .then(() => {
+    console.log('Connected to database ')
   })
-  .catch( (err) => {
-      console.error(`Error connecting to the database. \n${err}`);
+  .catch((err) => {
+    console.error(`Error connecting to the database. \n${err}`);
   })
 
 
-  const MyExample = require('./models/example');
+const MyExample = require('./models/example');
+const newEx = sizeOptionsModel();
+// newEx.name="10*14";
+// newEx.name="11*15";
+//   newEx.name="12*17";
+//   newEx.name="17.5*25.5";
+//   newEx.name="16.5*24.5";
+//   newEx.name="15*23";
+//   newEx.name="14*21";
+//   newEx.name="24*35";
+//   newEx.name="22*31";
+//   newEx.name="21*28";
+//  newEx.save();
 
-  // const newEx = MyExample();
-  // newEx.save();
+ const newEx1 = paperTypesModel();
+// newEx1.name="נטול עץ לבן 70 גרם";
+// newEx1.name="נטול עץ לבן 80 גרם";
+// newEx1.name="נטול עץ לבן 90 גרם";
+// newEx1.name="נטול עץ לבן 110 גרם";
+// newEx1.name="נטול עץ קרם 70 גרם";
+// newEx1.name="נטול עץ קרם 80 גרם";
+// newEx1.name="נטול עץ קרם 90 גרם";
+// newEx1.name="נטול עץ קרם 110 גרם";
+// newEx1.name="כרומו 90 גרם";
+// newEx1.name="כרומו 105 גרם";
+// newEx1.name="כרומו 115 גרם";
+// newEx1.name="כרומו 130 גרם";
+// newEx1.name="נטול עץ קרם 60 מיוחד";
+// newEx1.name="כרומו 64 גרם";
+// newEx1.name="בייבל לבן 60";
+// newEx1.name="בייבל לבן 50";
+// newEx1.name="בייבל קרם 60";
+// newEx1.name="בייבל קרם 50";
+// newEx1.save();
+
+
+ const newEx2=formatTypesOptionsModel();
+// newEx2.name="רגיל";
+// newEx2.name="אלבומי";
+// newEx2.save();
+
+
+ const newEx3=colorOptionsModel();
+// newEx3.name="שחור לבן";
+// newEx3.name="צבעוני (פרוצס)";
+// newEx3.save();
+
+
+const newEx4=bindingTypesOptionsModel();
+// newEx4.name="כריכה קשה";
+// newEx4.name="כריכה רכה";
+// newEx4.name="סיכות";
+// newEx4.save();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,12 +104,12 @@ app.use('/user', userRoute);
 // app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
