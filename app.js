@@ -27,16 +27,16 @@ var sizeOptionsRoute = require('./routes/sizeOptionsRoutes');
 //connecting to mongo atlas
 const url = `mongodb+srv://shulaefrat:shef1234@cluster0.fwpkh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
-const connectionParams={
+const connectionParams = {
   useNewUrlParser: true,
   // useUnifiedTopology: true 
 }
-mongoose.connect(url,connectionParams)
-  .then( () => {
-      console.log('Connected to database ')
+mongoose.connect(url, connectionParams)
+  .then(() => {
+    console.log('Connected to database ')
   })
-  .catch( (err) => {
-      console.error(`Error connecting to the database. \n${err}`);
+  .catch((err) => {
+    console.error(`Error connecting to the database. \n${err}`);
   })
 
 
@@ -129,12 +129,12 @@ app.use('/sizeoptions', sizeOptionsRoute);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
