@@ -52,7 +52,8 @@ module.exports = {
      */
     create: function (req, res) {
         var bindingTypesOptions = new BindingtypesoptionsModel({
-			name : req.body.name
+			bookType : req.body.bookType,
+			bindingType : req.body.bindingType
         });
 
         bindingTypesOptions.save(function (err, bindingTypesOptions) {
@@ -87,7 +88,8 @@ module.exports = {
                 });
             }
 
-            bindingTypesOptions.name = req.body.name ? req.body.name : bindingTypesOptions.name;
+            bindingTypesOptions.bookType = req.body.bookType ? req.body.bookType : bindingTypesOptions.bookType;
+			bindingTypesOptions.bindingType = req.body.bindingType ? req.body.bindingType : bindingTypesOptions.bindingType;
 			
             bindingTypesOptions.save(function (err, bindingTypesOptions) {
                 if (err) {
