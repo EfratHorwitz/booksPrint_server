@@ -53,7 +53,7 @@ module.exports = {
     create: function (req, res) {
         var bindingTypesOptions = new BindingtypesoptionsModel({
 			bookType : req.body.bookType,
-			bindingType : req.body.bindingType
+			name : req.body.name
         });
 
         bindingTypesOptions.save(function (err, bindingTypesOptions) {
@@ -89,7 +89,7 @@ module.exports = {
             }
 
             bindingTypesOptions.bookType = req.body.bookType ? req.body.bookType : bindingTypesOptions.bookType;
-			bindingTypesOptions.bindingType = req.body.bindingType ? req.body.bindingType : bindingTypesOptions.bindingType;
+			bindingTypesOptions.name = req.body.name ? req.body.name : bindingTypesOptions.name;
 			
             bindingTypesOptions.save(function (err, bindingTypesOptions) {
                 if (err) {

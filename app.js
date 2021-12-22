@@ -100,8 +100,16 @@ mongoose.connect(url, connectionParams)
   // newEx4.name="סיכות";
   // newEx4.save();
   
-
-
+  const newEx5 = bindingTypesOptionsModel();
+  // newEx5.bookType = "כריכה קשה";
+  // newEx5.name ="סקאי";
+  // newEx5.name ="למינציה";
+  // newEx5.bookType = "כריכה רכה";
+  // newEx5.name ="צבעוני, למינציה מט";
+  // newEx5.name ="צבעוני, למינציה מבריק";
+  // newEx5.name ="שחור-לבן, למינציה מט";
+  // newEx5.name ="שחור-לבן, למינציה מבריק";
+  // newEx5.save();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
