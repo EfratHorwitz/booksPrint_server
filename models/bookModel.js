@@ -3,7 +3,7 @@ var Schema   = mongoose.Schema;
 
 var bookSchema = new Schema({
 	'bookType' : String,
-	'size' : Number,
+	'size' : String,
 	'format' : String,
 	'pagesNum' : Number,
 	'paperType' : String,

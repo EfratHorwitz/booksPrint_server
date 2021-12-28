@@ -22,7 +22,7 @@ var colorOptionsRoute = require('./routes/colorOptionsRoutes');
 var formatTypesRoute = require('./routes/formatTypesOptionsRoutes');
 var paperTypesRoute = require('./routes/paperTypesRoutes');
 var sizeOptionsRoute = require('./routes/sizeOptionsRoutes');
-
+var orderRoute = require('./routes/orderRoutes');
 
 //connecting to mongo atlas
 const url = `mongodb+srv://shulaefrat:shef1234@cluster0.fwpkh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
@@ -133,7 +133,7 @@ app.use('/coloroptions', colorOptionsRoute);
 app.use('/formattypes', formatTypesRoute);
 app.use('/papertypes', paperTypesRoute);
 app.use('/sizeoptions', sizeOptionsRoute);
-
+app.use('/order', orderRoute);
 
 
 // catch 404 and forward to error handler
