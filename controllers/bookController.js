@@ -52,6 +52,7 @@ module.exports = {
      */
     create: function (req, res) {
         var book = new BookModel({
+			userId : req.body.userId,
 			bookType : req.body.bookType,
 			size : req.body.size,
 			format : req.body.format,
@@ -61,7 +62,8 @@ module.exports = {
 			coverType : req.body.coverType,
 			coverAdditions : req.body.coverAdditions,
 			additions : req.body.additions,
-			booksNum : req.body.booksNum
+			booksNum : req.body.booksNum,
+			price : req.body.price
         });
 
         book.save(function (err, book) {
@@ -96,7 +98,8 @@ module.exports = {
                 });
             }
 
-            book.bookType = req.body.bookType ? req.body.bookType : book.bookType;
+            book.userId = req.body.userId ? req.body.userId : book.userId;
+			book.bookType = req.body.bookType ? req.body.bookType : book.bookType;
 			book.size = req.body.size ? req.body.size : book.size;
 			book.format = req.body.format ? req.body.format : book.format;
 			book.pagesNum = req.body.pagesNum ? req.body.pagesNum : book.pagesNum;
@@ -106,6 +109,7 @@ module.exports = {
 			book.coverAdditions = req.body.coverAdditions ? req.body.coverAdditions : book.coverAdditions;
 			book.additions = req.body.additions ? req.body.additions : book.additions;
 			book.booksNum = req.body.booksNum ? req.body.booksNum : book.booksNum;
+			book.price = req.body.price ? req.body.price : book.price;
 			
             book.save(function (err, book) {
                 if (err) {
