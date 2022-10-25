@@ -3,7 +3,7 @@ var Schema   = mongoose.Schema;
 
 var userSchema = new Schema({
 	'fullname' : String,
-	'userName' : String,
+	'username' : String,
 	'password' : Number,
 	'email' : String,
 	'orders' : [{type:mongoose.Types.ObjectId, ref:'order' }]

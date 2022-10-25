@@ -65,7 +65,7 @@ module.exports = {
         console.log("in create user",req.body);
         var user = new UserModel({
 			fullname : req.body.fullname,
-			userName : req.body.userName,
+			username : req.body.username,
 			password : req.body.password,
 			email : req.body.email,			
         });
@@ -104,7 +104,7 @@ module.exports = {
             }
 
             user.fullname = req.body.fullname ? req.body.fullname : user.fullname;
-			user.userName = req.body.userName ? req.body.userName : user.userName;
+			user.username = req.body.username ? req.body.username : user.username;
 			user.password = req.body.password ? req.body.password : user.password;
 			user.email = req.body.email ? req.body.email : user.email;
 			user.orders = req.body.orders ? req.body.orders : user.orders;
