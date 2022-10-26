@@ -19,6 +19,8 @@ router.get('/:id', userController.show);
  */
 router.post('/', userController.create);
 
+router.post('/verify', userController.verify)
+
 /*
  * PUT
  */

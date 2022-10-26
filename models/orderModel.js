@@ -2,8 +2,14 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 var orderSchema = new Schema({
-	'bookId' : Number,
-	'userId' : {type:mongoose.Types.ObjectId, ref:'user' },
+	'bookId' : {
+	 	type: Schema.Types.ObjectId,
+	 	ref: 'bookModel'
+	},
+	'userId' : {
+	 	type: Schema.Types.ObjectId,
+	 	ref: 'userModel'
+	},
 	'orderDate' : Date,
 	'orderStatus' : String,
 	'orderPrice' : Number,

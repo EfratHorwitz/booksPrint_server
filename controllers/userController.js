@@ -16,6 +16,16 @@ const generateAccessToken = (user) => {
     return jwt.sign({user}, TOKEN_SECRET);
 };
 
+const verifyUserFromToken = (token) => {
+    let decoded;
+    try {
+        decoded = jwt.verify(token, TOKEN_SECRET);
+    } catch (e) {
+        return res.status(401).send('unauthorized');
+    }
+    return decoded;
+}
+
 module.exports = {
 
     /**
@@ -80,6 +90,30 @@ module.exports = {
             }
             
             return res.status(200).json({user, token});
+        });
+    },
+
+    verify: function (req, res) {
+        // console.log("in create user",req.body);
+        let token = req.body.token;
+        // token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZ1bGxuYW1lIjoibm93IiwidXNlcm5hbWUiOiJub3ciLCJvcmRlcnMiOltdLCJfaWQiOiI2MzU5ODU1YTlkOTM1NTlmNmY3MGYwZmMifSwiaWF0IjoxNjY2ODExMjI2fQ.LozznnSUv1tdi3un7NkA4DYh4o6msD4QXc0-KnSHzMQ";
+        const user = verifyUserFromToken(token);
+        // console.log("token", token);
+        UserModel.findOne({_id: user.user._id}, function (err, user) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when getting user.',
+                    error: err
+                });
+            }
+
+            if (!user) {
+                return res.status(404).json({
+                    message: 'No such user'
+                });
+            }
+
+            return res.status(200).json(user);
         });
     },
 

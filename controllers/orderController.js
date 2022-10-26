@@ -36,7 +36,6 @@ module.exports = {
                     error: err
                 });
             }
-
             if (!order) {
                 return res.status(404).json({
                     message: 'No such order'
