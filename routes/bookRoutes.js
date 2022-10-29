@@ -1,4 +1,5 @@
 var express = require('express');
+const { showAll } = require('../controllers/bookController.js');
 var router = express.Router();
 var bookController = require('../controllers/bookController.js');
 
@@ -11,6 +12,8 @@ router.get('/', bookController.list);
  * GET
  */
 router.get('/:id', bookController.show);
+
+router.get('/all/:id', bookController.showAll );
 
 /*
  * POST

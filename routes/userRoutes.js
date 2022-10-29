@@ -12,7 +12,7 @@ router.get('/', userController.list);
 /*
  * GET
  */
-router.get('/:id', userController.show);
+router.get('/:username/:password', userController.show);
 
 /*
  * POST

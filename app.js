@@ -6,12 +6,13 @@ var logger = require('morgan');
 const cors = require('cors')
 const mongoose = require('mongoose');
 var app = express();
-
+// const mailSender = require('./mail-sender');
+// mailSender.sendEmail();
 var sizeOptionsModel = require('./models/sizeOptionsModel');
 var paperTypesModel = require('./models/paperTypesModel');
-var formatTypesOptionsModel=require('./models/formatTypesOptionsModel');
-var colorOptionsModel=require('./models/colorOptionsModel');
-var bindingTypesOptionsModel=require('./models/bindingTypesOptionsModel');
+var formatTypesOptionsModel = require('./models/formatTypesOptionsModel');
+var colorOptionsModel = require('./models/colorOptionsModel');
+var bindingTypesOptionsModel = require('./models/bindingTypesOptionsModel');
 
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
@@ -41,76 +42,76 @@ mongoose.connect(url, connectionParams)
   })
 
 
-  // const MyExample = require('./models/example');
+// const MyExample = require('./models/example');
 
-  // const newEx = MyExample();
-  // newEx.save();
+// const newEx = MyExample();
+// newEx.save();
 
 //insert data to tables
-  const newEx = sizeOptionsModel();
-  // newEx.name="10*14";
-  // newEx.name="11*15";
-  //   newEx.name="21*28";
-    // newEx.name="12*17";
-    // newEx.name="17.5*25.5";
-    // newEx.name="16.5*24.5";
-    // newEx.name="15*23";
-    // newEx.name="14*21";
-    // newEx.name="24*35";
-    // newEx.name="22*31";
-  
-  //  newEx.save();
-  
-   const newEx1 = paperTypesModel();
-  // newEx1.name="נטול עץ לבן 70 גרם";
-  // newEx1.name="נטול עץ לבן 80 גרם";
-  // newEx1.name="נטול עץ לבן 90 גרם";
-  // newEx1.name="נטול עץ לבן 110 גרם";
-  // newEx1.name="נטול עץ קרם 70 גרם";
-  // newEx1.name="נטול עץ קרם 80 גרם";
-  // newEx1.name="נטול עץ קרם 90 גרם";
-  // newEx1.name="נטול עץ קרם 110 גרם";
-  // newEx1.name="נטול עץ קרם 60 מיוחד";
-  // newEx1.name="כרומו 64 גרם";
-  // newEx1.name="כרומו 90 גרם";
-  // newEx1.name="כרומו 105 גרם";
-  // newEx1.name="כרומו 115 גרם";
-  // newEx1.name="כרומו 130 גרם";
-  // newEx1.name="בייבל לבן 60";
-  // newEx1.name="בייבל לבן 50";
-  // newEx1.name="בייבל קרם 60";
-  // newEx1.name="בייבל קרם 50";
-  // newEx1.save();
-  
-  
-   const newEx2=formatTypesOptionsModel();
-  // newEx2.name="רגיל";
-  // newEx2.name="אלבומי";
-  // newEx2.save();
-  
-  
-   const newEx3=colorOptionsModel();
-  // newEx3.name="שחור לבן";
-  // newEx3.name="צבעוני (פרוצס)";
-  // newEx3.save();
-  
-  
-  const newEx4=bindingTypesOptionsModel();
-  // newEx4.name="כריכה קשה";
-  // newEx4.name="כריכה רכה";
-  // newEx4.name="סיכות";
-  // newEx4.save();
-  
-  const newEx5 = bindingTypesOptionsModel();
-  // newEx5.bookType = "כריכה קשה";
-  // newEx5.name ="סקאי";
-  // newEx5.name ="למינציה";
-  // newEx5.bookType = "כריכה רכה";
-  // newEx5.name ="צבעוני, למינציה מט";
-  // newEx5.name ="צבעוני, למינציה מבריק";
-  // newEx5.name ="שחור-לבן, למינציה מט";
-  // newEx5.name ="שחור-לבן, למינציה מבריק";
-  // newEx5.save();
+const newEx = sizeOptionsModel();
+// newEx.name="10*14";
+// newEx.name="11*15";
+//   newEx.name="21*28";
+// newEx.name="12*17";
+// newEx.name="17.5*25.5";
+// newEx.name="16.5*24.5";
+// newEx.name="15*23";
+// newEx.name="14*21";
+// newEx.name="24*35";
+// newEx.name="22*31";
+
+//  newEx.save();
+
+const newEx1 = paperTypesModel();
+// newEx1.name="נטול עץ לבן 70 גרם";
+// newEx1.name="נטול עץ לבן 80 גרם";
+// newEx1.name="נטול עץ לבן 90 גרם";
+// newEx1.name="נטול עץ לבן 110 גרם";
+// newEx1.name="נטול עץ קרם 70 גרם";
+// newEx1.name="נטול עץ קרם 80 גרם";
+// newEx1.name="נטול עץ קרם 90 גרם";
+// newEx1.name="נטול עץ קרם 110 גרם";
+// newEx1.name="נטול עץ קרם 60 מיוחד";
+// newEx1.name="כרומו 64 גרם";
+// newEx1.name="כרומו 90 גרם";
+// newEx1.name="כרומו 105 גרם";
+// newEx1.name="כרומו 115 גרם";
+// newEx1.name="כרומו 130 גרם";
+// newEx1.name="בייבל לבן 60";
+// newEx1.name="בייבל לבן 50";
+// newEx1.name="בייבל קרם 60";
+// newEx1.name="בייבל קרם 50";
+// newEx1.save();
+
+
+const newEx2 = formatTypesOptionsModel();
+// newEx2.name="רגיל";
+// newEx2.name="אלבומי";
+// newEx2.save();
+
+
+const newEx3 = colorOptionsModel();
+// newEx3.name="שחור לבן";
+// newEx3.name="צבעוני (פרוצס)";
+// newEx3.save();
+
+
+const newEx4 = bindingTypesOptionsModel();
+// newEx4.name="כריכה קשה";
+// newEx4.name="כריכה רכה";
+// newEx4.name="סיכות";
+// newEx4.save();
+
+const newEx5 = bindingTypesOptionsModel();
+// newEx5.bookType = "כריכה קשה";
+// newEx5.name ="סקאי";
+// newEx5.name ="למינציה";
+// newEx5.bookType = "כריכה רכה";
+// newEx5.name ="צבעוני, למינציה מט";
+// newEx5.name ="צבעוני, למינציה מבריק";
+// newEx5.name ="שחור-לבן, למינציה מט";
+// newEx5.name ="שחור-לבן, למינציה מבריק";
+// newEx5.save();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
